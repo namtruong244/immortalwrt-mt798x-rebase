@@ -247,17 +247,11 @@ function handle_setup(data) {
 
     /*****          SETUP VIFS        *******/
     // UCI => DAT, ifup, reload driver...
-	let is_inited = cfg.setup(data, all_devs);
+    cfg.setup(data, all_devs);
     // notify netifd to setup
 	netifd.set_up();
 
 	l1.close();
-
-    // init main vifs may take ~10s, the task will hold the lock until its done
-    // if latter setup sessions come up so early, netifd may kill them if it waits too long!!!
-    if (!is_inited) {
-        sleep(10000);
-    }
 }
 
 // ==========================================
