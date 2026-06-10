@@ -578,6 +578,30 @@ define U-Boot/mt7981_netis_nx32u
   DEPENDS:=+trusted-firmware-a-mt7981-spim-nand-ddr3
 endef
 
+define U-Boot/mt7981_viettel_nr3053
+  NAME:=Viettel NR3053
+  BUILD_SUBTARGET:=filogic
+  BUILD_DEVICES:=viettel_nr3053
+  UBOOT_CONFIG:=mt7981_viettel_nr3053
+  UBOOT_IMAGE:=u-boot.fip
+  BL2_BOOTDEV:=spim-nand
+  BL2_SOC:=mt7981
+  BL2_DDRTYPE:=ddr3
+  DEPENDS:=+trusted-firmware-a-mt7981-spim-nand-ddr3
+endef
+
+define U-Boot/mt7981_vht_32x6
+  NAME:=Viettel VHT-32X6V1
+  BUILD_SUBTARGET:=filogic
+  BUILD_DEVICES:=vht_32x6
+  UBOOT_CONFIG:=mt7981_vht_32x6
+  UBOOT_IMAGE:=u-boot.fip
+  BL2_BOOTDEV:=spim-nand
+  BL2_SOC:=mt7981
+  BL2_DDRTYPE:=ddr3
+  DEPENDS:=+trusted-firmware-a-mt7981-spim-nand-ddr3
+endef
+
 define U-Boot/mt7981_nokia_ea0326gmp
   NAME:=Nokia EA0326GMP
   BUILD_SUBTARGET:=filogic
@@ -1353,6 +1377,8 @@ UBOOT_TARGETS := \
 	mt7981_netis_nx30v2 \
 	mt7981_netis_nx31 \
 	mt7981_netis_nx32u \
+	mt7981_viettel_nr3053 \
+	mt7981_vht_32x6 \
 	mt7981_nokia_ea0326gmp \
 	mt7981_openwrt_one-snand \
 	mt7981_openwrt_one-nor \
