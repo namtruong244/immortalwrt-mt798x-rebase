@@ -43,11 +43,8 @@ jobs:
     - name: Tải trước các gói mã nguồn (Download packages)
       run: make download -j8
 
-    - name: Tiến hành Biên dịch siêu tốc (Single Device Build)
-      run: |
-        # Áp dụng lệnh tối ưu từ tài liệu để bỏ qua các gói không liên quan
-        # Nếu build cho VHT-32X6, hãy đổi DEVICE=viettel_nr3053 thành DEVICE=vht_32x6
-        make target/linux/install -j$(nproc) TARGET=mediatek SUBTARGET=filogic DEVICE=viettel_nr3053 V=s
+    - name: Tiến hành Biên dịch (Full Build cho môi trường CI)
+      run: make -j$(nproc) || make -j1 V=s
 
     - name: Thu thập và Đăng tải Firmware (Artifacts)
       uses: actions/upload-artifact@v4
